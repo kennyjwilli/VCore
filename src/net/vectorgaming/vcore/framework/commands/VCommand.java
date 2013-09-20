@@ -1,6 +1,8 @@
 
 package net.vectorgaming.vcore.framework.commands;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import net.vectorgaming.vcore.VCoreAPI;
 import net.vectorgaming.vcore.framework.VertexPlugin;
@@ -16,6 +18,7 @@ import org.bukkit.command.ConsoleCommandSender;
 public abstract class VCommand extends Command
 {
     private VertexPlugin plugin;
+    private ArrayList<SubCommand> subCommands = new ArrayList<>();
     
     protected VCommand(String command, VertexPlugin plugin)
     {
@@ -36,6 +39,12 @@ public abstract class VCommand extends Command
     public abstract String getPermission();
     public abstract Integer getMinArgsLength();
     public abstract boolean isPlayerOnlyCommand();
+    
+    public ArrayList<SubCommand> getSubCommands() {return subCommands;}
+    
+    public void addSubCommand(SubCommand c) {subCommands.add(c);}
+    
+    public void removeSubCommand(SubCommand c) {subCommands.remove(c);}
     
     public VertexPlugin getPlugin() {return plugin;}
     
@@ -68,6 +77,20 @@ public abstract class VCommand extends Command
         {
             cs.sendMessage(ChatColor.RED+"Usage: "+getUsage());
             return true;
+        }
+        
+        //Runs subcommand if needed
+        if(args.length == 1 && !getSubCommands().isEmpty())
+        {
+            for(SubCommand c : getSubCommands())
+            {
+                if(c.getName().equalsIgnoreCase(args[0]))
+                {
+                    String[] subArgs = Arrays.copyOfRange(args, 1, args.length);
+                    c.execute(cs, lbl, subArgs);
+                    return true;
+                }
+            }
         }
         
         run(plugin, cs, args);
