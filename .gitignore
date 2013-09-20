@@ -229,3 +229,4 @@ pip-log.txt
 /dist
 /manifest.mf
 /VChat/nbproject/private/
+/VCore/nbproject/private/
