@@ -1,0 +1,4 @@
+VCore
+=====
+
+A Core Plugin
