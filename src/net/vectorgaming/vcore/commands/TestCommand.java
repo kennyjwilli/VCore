@@ -13,7 +13,10 @@ import org.bukkit.command.CommandSender;
  */
 public class TestCommand extends VCommand
 {
-    public TestCommand() {super("test", VCoreAPI.getPlugin());}
+    public TestCommand() {
+        super("test", VCoreAPI.getPlugin());
+        this.addSubCommand(new TestSubCommand());
+    }
 
     @Override
     public void run(VertexPlugin plugin, CommandSender cs, String[] args)
