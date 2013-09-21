@@ -2,7 +2,6 @@
 package net.vectorgaming.vcore.commands;
 
 import net.vectorgaming.vcore.VCoreAPI;
-import net.vectorgaming.vcore.framework.VertexPlugin;
 import net.vectorgaming.vcore.framework.commands.SubCommand;
 import org.bukkit.command.CommandSender;
 
@@ -18,7 +17,7 @@ public class TestSubCommand extends SubCommand
     }
     
     @Override
-    public void run(VertexPlugin plugin, CommandSender cs, String[] args)
+    public void run(CommandSender cs, String[] args)
     {
         cs.sendMessage("reached subcommand!");
     }
