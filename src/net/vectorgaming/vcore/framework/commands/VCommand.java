@@ -80,7 +80,7 @@ public abstract class VCommand extends Command
         }
         
         //Runs subcommand if needed
-        if(args.length == 1 && !getSubCommands().isEmpty())
+        if(args.length >= 1 && !getSubCommands().isEmpty())
         {
             for(SubCommand c : getSubCommands())
             {
