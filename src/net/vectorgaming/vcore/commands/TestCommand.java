@@ -19,7 +19,7 @@ public class TestCommand extends VCommand
     }
 
     @Override
-    public void run(VertexPlugin plugin, CommandSender cs, String[] args)
+    public void run(CommandSender cs, String[] args)
     {
         cs.sendMessage("Hello World!");
     }
