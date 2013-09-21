@@ -20,7 +20,6 @@ public class CommandManager
     
     static
     {
-        
         try
         {
             final Field f = CraftServer.class.getDeclaredField("commandMap");
@@ -32,12 +31,22 @@ public class CommandManager
         }
     }
     
+    /**
+     * Dynamically registers a command into Bukkit. The command is not required to be added in the
+     * plugin.yml
+     * @param command Command to be registered
+     */
     public static void registerCommand(VCommand command)
     {
         commandMap.register(command.getName(), command);
         commands.add(command);
     }
     
+    /**
+     * Checks to see if the given command has been registered
+     * @param command Name of the command to check
+     * @return TRUE if the command does exist
+     */
     public static boolean commandExists(String command)
     {
         for(VCommand cmd : commands)
@@ -48,6 +57,10 @@ public class CommandManager
         return false;
     }
     
+    /**
+     * Returns a list of commands that have been registered with the plugin
+     * @return A list of commands
+     */
     public static ArrayList<VCommand> getCommands() 
     {
         return commands;
