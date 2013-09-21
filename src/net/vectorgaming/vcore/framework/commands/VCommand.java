@@ -33,7 +33,7 @@ public abstract class VCommand extends Command
         this.setAliases(aliases);
     }
         
-    public abstract void run(VertexPlugin plugin, CommandSender cs, String[] args);
+    public abstract void run(CommandSender cs, String[] args);
     public abstract String getDescription();
     public abstract String getUsage();
     public abstract String getPermission();
@@ -93,7 +93,7 @@ public abstract class VCommand extends Command
             }
         }
         
-        run(plugin, cs, args);
+        run(cs, args);
         return true;
     }
 }
