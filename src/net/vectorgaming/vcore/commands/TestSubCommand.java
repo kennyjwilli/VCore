@@ -14,7 +14,7 @@ public class TestSubCommand extends SubCommand
 {
     public TestSubCommand()
     {
-        super("test", VCoreAPI.getPlugin());
+        super("testing", VCoreAPI.getPlugin());
     }
     
     @Override
@@ -26,25 +26,25 @@ public class TestSubCommand extends SubCommand
     @Override
     public String getDescription()
     {
-        return "desc";
+        return "This is a sub command for /test";
     }
 
     @Override
     public String getUsage()
     {
-        return "test";
+        return "/test testing";
     }
 
     @Override
     public String getPermission()
     {
-        return "test.test";
+        return "test.testing";
     }
 
     @Override
     public Integer getMinArgsLength()
     {
-        return 0;
+        return 1;
     }
 
     @Override

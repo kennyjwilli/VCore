@@ -21,19 +21,19 @@ public class TestCommand extends VCommand
     @Override
     public void run(VertexPlugin plugin, CommandSender cs, String[] args)
     {
-        System.out.println("Hello World!");
+        cs.sendMessage("Hello World!");
     }
 
     @Override
     public String getDescription()
     {
-        return("tt");
+        return("This is a test command");
     }
 
     @Override
     public String getUsage()
     {
-        return("usage");
+        return("/test");
     }
 
     @Override
