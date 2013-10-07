@@ -45,6 +45,12 @@ public class TestSubCommand extends SubCommand
     {
         return 1;
     }
+    
+    @Override
+    public Integer getMaxArgsLength()
+    {
+        return -1;
+    }
 
     @Override
     public boolean isPlayerOnlyCommand()
