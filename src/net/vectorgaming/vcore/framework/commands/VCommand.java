@@ -191,10 +191,11 @@ public abstract class VCommand extends Command
             return true;
         }
         
-        if(args.length > getMaxArgsLength())
+        if(args.length > getMaxArgsLength() && getMaxArgsLength() >= 0)
         {
             sendErrorMessage(cs, "Too many command arguments.");
             cs.sendMessage(ChatColor.RED+"Usage: "+getUsage());
+            return true;
         }
         
         //Runs subcommand if needed
