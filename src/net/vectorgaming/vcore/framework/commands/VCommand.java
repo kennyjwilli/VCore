@@ -76,6 +76,13 @@ public abstract class VCommand extends Command
     public abstract Integer getMinArgsLength();
     
     /**
+     * Returns the maximum number of arguments the command can have. If there is no restriction on
+     * maximum arguments, give this method a negative value
+     * @return Maximum amount of arguments
+     */
+    public abstract Integer getMaxArgsLength();
+    
+    /**
      * Checks to see if the command can only be executed by a player
      * @return True if can only be used by a player
      */
