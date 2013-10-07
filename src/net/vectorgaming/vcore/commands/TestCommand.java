@@ -53,5 +53,11 @@ public class TestCommand extends VCommand
     {
         return 0;
     }
+    
+    @Override
+    public Integer getMaxArgsLength()
+    {
+        return -1;
+    }
 
 }
