@@ -17,8 +17,8 @@ import org.bukkit.command.ConsoleCommandSender;
  */
 public abstract class VCommand extends Command
 {
-    private VertexPlugin plugin;
-    private ArrayList<SubCommand> subCommands = new ArrayList<>();
+    private final VertexPlugin plugin;
+    private final ArrayList<SubCommand> subCommands = new ArrayList<>();
     
     /**
      *
