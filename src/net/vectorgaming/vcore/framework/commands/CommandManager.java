@@ -16,7 +16,7 @@ import org.bukkit.craftbukkit.v1_6_R3.CraftServer;
 public class CommandManager 
 {
     private static CommandMap commandMap;
-    private static ArrayList<VCommand> commands = new ArrayList<>();
+    private static final ArrayList<VCommand> commands = new ArrayList<>();
     
     static
     {
