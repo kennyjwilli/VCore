@@ -234,11 +234,11 @@ public abstract class VCommand extends Command
         //Runs subcommand if needed
         if(args.length >= 1 && !getSubCommands().isEmpty())
         {
+            String[] subArgs = Arrays.copyOfRange(args, 1, args.length);
             for(SubCommand c : getSubCommands())
             {
                 if(c.getName().equalsIgnoreCase(args[0]))
                 {
-                    String[] subArgs = Arrays.copyOfRange(args, 1, args.length);
                     c.execute(cs, lbl, subArgs);
                     return true;
                 }
@@ -247,7 +247,7 @@ public abstract class VCommand extends Command
                 {
                     if(s.equalsIgnoreCase(args[0]))
                     {
-                        c.execute(cs, lbl, args);
+                        c.execute(cs, lbl, subArgs);
                         return true;
                     }
                 }
