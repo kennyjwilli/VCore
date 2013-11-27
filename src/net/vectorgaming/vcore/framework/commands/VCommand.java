@@ -185,6 +185,39 @@ public abstract class VCommand extends Command
             return true;
         }
         
+        if(args.length == 1 && args[0].equalsIgnoreCase("?"))
+        {
+            cs.sendMessage(VCoreAPI.getColorScheme().getTitleBar(getName()));
+            cs.sendMessage(ChatColor.GOLD+""+ChatColor.BOLD+"Description: "+ChatColor.RESET+ChatColor.BLUE+getDescription());
+            cs.sendMessage(ChatColor.GOLD+""+ChatColor.BOLD+"Usage: "+ChatColor.RESET+ChatColor.BLUE+getUsage());
+            if(!getSubCommands().isEmpty())
+            {
+                String list = "";
+                int counter = 1;
+                boolean first = false;
+                for(SubCommand c : getSubCommands())
+                {
+                    if(first)
+                    {
+                        list += ChatColor.WHITE+", ";
+                    }else
+                    {
+                        first = true;
+                    }
+                    if(counter % 2 == 0)
+                    {
+                        list += ChatColor.AQUA+c.getName();
+                    }else
+                    {
+                        list += ChatColor.GREEN+c.getName();
+                    }
+                    counter++;
+                }
+                cs.sendMessage(ChatColor.GOLD+""+ChatColor.BOLD+"Parameters: "+ChatColor.RESET+list);
+            }
+            return true;
+        }
+        
         if(args.length < getMinArgsLength())
         {
             cs.sendMessage(ChatColor.RED+"Usage: "+getUsage());
@@ -208,6 +241,15 @@ public abstract class VCommand extends Command
                     String[] subArgs = Arrays.copyOfRange(args, 1, args.length);
                     c.execute(cs, lbl, subArgs);
                     return true;
+                }
+                //Executes alias for the subcommand if possible
+                for(String s : c.getAliases())
+                {
+                    if(s.equalsIgnoreCase(args[0]))
+                    {
+                        c.execute(cs, lbl, args);
+                        return true;
+                    }
                 }
             }
         }
