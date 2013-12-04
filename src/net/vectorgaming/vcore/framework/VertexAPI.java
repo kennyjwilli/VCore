@@ -1,18 +1,24 @@
 
 package net.vectorgaming.vcore.framework;
 
+import net.vectorgaming.vcore.VCore;
+
 
 /**
  *
  * @author Kenny
  */
-public abstract class VertexAPI 
+public class VertexAPI 
 {
     private static VertexPlugin plugin;
-    public VertexAPI(VertexPlugin plugin)
+    
+    public VertexAPI(VCore instance)
     {
-        this.plugin = plugin;
+        plugin = instance;
     }
     
-    public static VertexPlugin getPlugin() {return plugin;}
+    public static VertexPlugin getPlugin()
+    {
+        return plugin;
+    }
 }
