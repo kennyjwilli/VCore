@@ -14,6 +14,4 @@ public abstract class VertexPlugin extends JavaPlugin
     public abstract void onDisable();
     public abstract void setupCommands();
     public abstract Plugin getPlugin();
-    
-    public abstract VertexAPI getAPI();
 }
